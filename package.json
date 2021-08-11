@@ -1,0 +1,14 @@
+{
+  "name": "videoinfo",
+  "version": "1.0.0",
+  "description": "following tutorial on udemy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Philip Putnam",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.1.9"
+  }
+}
