@@ -14,7 +14,6 @@ async function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
     webPreferences: {
-      nodeIntegration: false, // is default value after Electron v5
       contextIsolation: true, // protect against prototype pollution
       enableRemoteModule: false, // turn off remote
       preload: path.join(__dirname, "preload.js") // use a preload script
@@ -29,13 +28,11 @@ async function createWindow() {
 
 app.on("ready", createWindow);
 
-// receiving from index.html video file path variable
+// receiving from and sending to index.html video file path variable
 ipcMain.on("toMain", (event, args) => {
     fs.readFile("path/to/file", (error, data) => {
         ffmpeg.ffprobe(args, (err, metadata) => {
-            console.log('Video duration is: ' + metadata.format.duration);
+            win.webContents.send("fromMain", metadata.format.duration);
         });
-      
-    //   win.webContents.send("fromMain", responseObj);
     });
 });
