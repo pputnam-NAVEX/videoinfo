@@ -4,11 +4,12 @@
   "description": "following tutorial on udemy",
   "main": "index.js",
   "scripts": {
-      "electron": "electron ."
+    "electron": "electron ."
   },
   "author": "Philip Putnam",
   "license": "ISC",
   "dependencies": {
-    "electron": "^13.1.9"
+    "electron": "^13.1.9",
+    "fluent-ffmpeg": "^2.1.2"
   }
 }
