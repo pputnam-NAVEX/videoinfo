@@ -16,8 +16,6 @@
 
     <!-- not for production -->
     <script>
-        const electron = require('electron');
-        const { ipcRenderer } = electron;
 
         document.querySelector('form').addEventListener('submit', (event) => {
             event.preventDefault();
@@ -25,7 +23,9 @@
             const { path } = document.querySelector('input').files[0];
 
             // sending to Electron ->
-            ipcRenderer.send('submitVideoPath', path);
+            window.api.send("toMain", path);
+            // ipcRenderer.send('submitVideoPath', path);
+
         });
     </script>
 </body>
